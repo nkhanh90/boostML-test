@@ -1,0 +1,40 @@
+/* bring in normalize.css styles */
+
+/* TODO: Dynamic import theme file and uncomment this */
+
+/* @import-normalize; */
+
+/* Global CSS */
+
+$theme-colors: (
+  primary: #f8dd29,
+  secondary: #000
+);
+
+$primary-color: #f8dd29;
+$primary-color-hover: #eece00;
+$text-color: #000;
+$text-gray: #727272;
+$white-color: #fff;
+$grid-columns: 12;
+
+$font-family-base: 'Montserrat', sans-serif;
+
+$font-size-base: 0.875rem;
+$h1-font-size: $font-size-base * 2.5;
+$h3-font-size: $font-size-base * 1.25;
+$h4-font-size: $font-size-base * 1.1;
+$headings-font-weight: 600 !default;
+$medium-font-weight: 500;
+
+@import "bootstrap";
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+#root {
+  height: 100%;
+  overflow-x: hidden;
+  background: #f9f9f9;
+}
