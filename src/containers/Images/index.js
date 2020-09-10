@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { makeSelectCollection } from 'containers/App/selectors';
 
@@ -11,7 +11,7 @@ import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 import { fetchRecord, addToFavorite, checkInFavorite, removeToFavorite } from 'containers/App/action';
 import { Loader } from 'components/Commons';
-import { Button } from 'reactstrap';
+import ImageItem from 'components/BoostML/ImageItem';
 
 const ImageContainer = ({
   match,
@@ -57,30 +57,14 @@ const ImageContainer = ({
   };
 
   const render = (
-    <div className="text-center">
-      <div>
-        <img src={state.webformatURL} alt="web" />
-      </div>
-      <div className="mt-4">
-        <h3>ID: {state.id}</h3>
-        <h3>Views: {state.views}</h3>
-        <h3>Likes: {state.likes}</h3>
-        <h3>Downloads: {state.downloads}</h3>
-      </div>
-      {!isFavorite ? (
-        <Button color="primary" className="mt-2" onClick={() => setFavorite(state)}>
-          Add to favorites
-        </Button>
-      ) : (
-        <Button color="danger" className="mt-2" onClick={() => removeFavorite(state.id)}>
-          Remove to favorites
-        </Button>
-      )}
-    </div>
+    <ImageItem state={state} setFavorite={setFavorite} isFavorite={isFavorite} removeFavorite={removeFavorite} />
   );
 
   return (
     <div>
+      <Link to="/" className="py-2 text-secondary d-block">
+        Back to Dashboard
+      </Link>
       <h1 className="text-center py-4">Image Detail</h1>
       {loading ? <Loader /> : render}
     </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import { createStructuredSelector } from 'reselect';
 import { makeSelectCollection } from 'containers/App/selectors';
 
@@ -35,6 +35,9 @@ const FavoriteImages = ({ collection, fetchCollection }) => {
 
   return (
     <div>
+      <Link to="/" className="py-2 text-secondary d-block">
+        Back to Dashboard
+      </Link>
       <h1 className="text-center py-4">Favorite Images</h1>
       {loading ? <Loader /> : render}
     </div>
