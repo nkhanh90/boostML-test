@@ -1,0 +1,13 @@
+stages:
+  - build
+  - deploy
+build:
+  stage: build
+  tags:
+    - boostML
+    - test
+  script:
+    - echo "Building deploy package"
+    - yarn install
+    - yarn build
+    - echo "Build successful"
